@@ -42,7 +42,7 @@ def find_angle(vec1, vec2, isRadians = True, isSum = False):
     else:
         return 180*theta/np.pi
         
- vec1 = []
+vec1 = []
 vec2 = []
 print("Enter the vector 1 : ")
 for i in range(0,2):
