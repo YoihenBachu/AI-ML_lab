@@ -1,0 +1,15 @@
+import numpy as np
+from matplotlib import pyplot as plt
+from mpl_toolkits import mplot3d
+
+fig = plt.figure()
+ax = plt.axes(projection = "3d")
+print("Enter the first vector : ")
+x = list(map(int, input().split()))
+print("Enter the second Vector : ")
+y = list(map(int, input().split()))
+print("Enter the third vector : ")
+z = list(map(int, input().split()))
+ax.plot3D(x, y, z, 'red')
+ax.scatter3D(x, y, z, c = z, cmap = 'cividis')
+plt.show()
