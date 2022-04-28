@@ -15,7 +15,7 @@ def plot_vector(vec1, vec2, isSum = False):
         ax.annotate(label3, [vec3[0] + 0.5, vec3[1] + 0.5])
         vec4 = [vec1[0] - vec2[0], vec2[1] - vec2[1]]
         ax.annotate(label4, [vec4[0] + 0.5, vec4[1] + 0.5])
-    ax.arrow(*orig, *vec1, head_width = 0.4, head_length = 0.65)
+    ax.arrow(*orig, *vec1, head_width = 0.4, head_length = 0.65, ec = "pink")
     ax.arrow(*orig, *vec2, head_width = 0.4, head_length = 0.65, ec = "blue")
     if isSum:
         ax.arrow(*orig, *vec3, head_width = 0.2, head_length = 0.25, ec = "yellow")
