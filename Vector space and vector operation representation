@@ -1,0 +1,53 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_vector(vec1, vec2, isSum = False):
+    label1 = "A"
+    label2 = "B"
+    label3 = "A + B"
+    label4 = "A-B"
+    orig = [0.0, 0.0]
+    ax = plt.axes()
+    ax.annotate(label1, [vec1[0]+0.5, vec1[1]+0.5])
+    ax.annotate(label2, [vec2[0]+0.5, vec2[1]+0.5])
+    if isSum:
+        vec3 = [vec1[0] + vec2[0], vec1[1] + vec2[1]]
+        ax.annotate(label3, [vec3[0] + 0.5, vec3[1] + 0.5])
+        vec4 = [vec1[0] - vec2[0], vec2[1] - vec2[1]]
+        ax.annotate(label4, [vec4[0] + 0.5, vec4[1] + 0.5])
+    ax.arrow(*orig, *vec1, head_width = 0.4, head_length = 0.65)
+    ax.arrow(*orig, *vec2, head_width = 0.4, head_length = 0.65, ec = "blue")
+    if isSum:
+        ax.arrow(*orig, *vec3, head_width = 0.2, head_length = 0.25, ec = "yellow")
+        ax.arrow(*orig, *vec4, head_width = 0.2, head_length = 0.25, ec = "green")
+    plt.grid()
+    e = 3
+    plt.xlim(min(vec1[0], vec2[0], 0) - e, max(vec1[0], vec2[0], 0) + e)
+    plt.ylim(min(vec1[1], vec2[1], 0) - e, max(vec1[1], vec2[1], 0) + e)
+    plt.title("Vector sum and difference", fontsize = 14)
+    plt.show()
+    plt.close()
+    
+    
+def find_angle(vec1, vec2, isRadians = True, isSum = False):
+    vec1 = np.array(vec1)
+    vec2 = np.array(vec2)
+    product12 = np.dot(vec1, vec2)
+    cos_theta = product12*((np.dot(vec1, vec1)**0.5)*(np.dot(vec2, vec2)**0.5))
+    cos_theta = round(cos_theta)
+    theta = np.arccos(cos_theta)
+    plot_vector(vec1, vec2, isSum = isSum)
+    if isRadians:
+        return theta
+    else:
+        return 180*theta/np.pi
+        
+ vec1 = []
+vec2 = []
+print("Enter the vector 1 : ")
+for i in range(0,2):
+    vec1.append(int(input()))
+print("Enter the vector 2 : ")
+for i in range(0,2):
+    vec2.append(int(input()))
+find_angle(vec1, vec2, isRadians = False, isSum = True)
