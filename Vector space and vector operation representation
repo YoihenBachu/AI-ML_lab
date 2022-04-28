@@ -5,7 +5,7 @@ def plot_vector(vec1, vec2, isSum = False):
     label1 = "A"
     label2 = "B"
     label3 = "A + B"
-    label4 = "A-B"
+    label4 = "A - B"
     orig = [0.0, 0.0]
     ax = plt.axes()
     ax.annotate(label1, [vec1[0]+0.5, vec1[1]+0.5])
